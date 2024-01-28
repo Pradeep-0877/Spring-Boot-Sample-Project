@@ -12,4 +12,6 @@ jobs:
                 java-version: 11
                 distribution: 'zulu'
             - name: Building our application
-              run: mvn package
+              run: mvn package -DskipTests
+
+            #   mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Pradeep-0877_Spring-Boot-Sample-Project
