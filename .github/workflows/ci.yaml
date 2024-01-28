@@ -18,7 +18,7 @@ jobs:
                 java-version: 11
                 distribution: 'zulu'
             - name: Building our application
-              run: mvn package -DskipTests
+              run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -DskipTests -Dsonar.projectKey=Pradeep-0877_Spring-Boot-Sample-Project
             - run: ls
             - name: archiving the artifacts
               uses: actions/upload-artifact@v3
