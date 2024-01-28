@@ -8,6 +8,8 @@ jobs:
         runs-on: ubuntu-latest
         environment: PROD
         steps: 
+            - name: Fetching our code
+              uses: actions/checkout@v3
             - name: Downloading the artifacts
               uses: dawidd6/action-download-artifact@v2
               with:
@@ -22,8 +24,7 @@ jobs:
                  ls
                  cd */
                  ls
-            - name: Fetching our code
-              uses: actions/checkout@v3
+            
             - name: Build & push Docker image
               uses: mr-smithers-excellent/docker-build-push@v5
               with:
