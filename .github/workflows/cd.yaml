@@ -17,13 +17,6 @@ jobs:
                # name: ${{ github.event.workflow_run.event.inputs.ARTIFACT_NAME }}
                 path: ./artifacts
                 search_artifacts: true
-            - run: |
-                 ls
-                 cd */
-                 pwd
-                 ls
-                 cd */
-                 ls
             - name: Build & push Docker image
               uses: mr-smithers-excellent/docker-build-push@v5
               with:
