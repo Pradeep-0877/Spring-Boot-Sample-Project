@@ -1,0 +1,21 @@
+name: Deploy
+on: 
+    workflow_run: 
+        workflows: build
+        types: completed
+jobs: 
+    Build-and-push-images:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Downloading the artifacts
+              uses: dawidd6/action-download-artifact@v2
+              with:
+                run_id: ${{ github.event.workflow_run.id }}
+               # name: ${{ github.event.workflow_run.event.inputs.ARTIFACT_NAME }}
+                path: ./artifacts
+                search_artifacts: true
+            - run: |
+                 ls
+                 cd */
+                 pwd
+                 ls
